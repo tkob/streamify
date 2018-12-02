@@ -1,0 +1,5 @@
+provides: streamify v0.1.0
+remote: git git://github.com/tkob/streamify.git
+description: An SML library for creating a stream from a mutable read function
+bug-url: https://github.com/tkob/streamify/issues
+license: MIT License
