@@ -1,0 +1,7 @@
+Library
+    functor StreamifyFn
+    structure TextStream
+is
+    $/basis.cm
+    streamify-sig.sml
+    streamify.sml

@@ -1,0 +1,9 @@
+Library
+    structure StreamifyTest
+is
+    $/basis.cm
+    $/smlunitlib.cm
+
+    streamify.cm
+
+    streamifytest.sml
