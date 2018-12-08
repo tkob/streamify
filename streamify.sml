@@ -1,5 +1,5 @@
 functor StreamifyFn(S : sig
-  type vector
+  eqtype vector
   type slice
   eqtype elem
 

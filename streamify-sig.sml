@@ -1,6 +1,6 @@
 signature STREAMIFY = sig
   type instream
-  type vector
+  eqtype vector
 
   (* create a stream from mutable read function *)
   val fromFun : (unit -> vector) -> instream
