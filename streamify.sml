@@ -149,3 +149,30 @@ structure TextStream = StreamifyFn(struct
   val empty = ""
   val newLine = "\n"
 end)
+
+structure BinStream = StreamifyFn(struct
+  type vector = Word8VectorSlice.vector
+  type slice = Word8VectorSlice.slice
+  type elem = Word8VectorSlice.elem
+
+  fun substring (s, i, j) = Word8VectorSlice.slice (s, i, SOME j)
+
+  val sub = Word8VectorSlice.sub
+  val full = Word8VectorSlice.full
+  val size = Word8VectorSlice.length
+  val concat = Word8VectorSlice.concat
+  val isEmpty = Word8VectorSlice.isEmpty
+
+  fun splitAt (s, i) =
+        (Word8VectorSlice.subslice (s, 0, SOME i), Word8VectorSlice.subslice (s, i, NONE))
+  fun triml k s = Word8VectorSlice.subslice (s, k, NONE)
+  fun splitl f s =
+        case Word8VectorSlice.findi (fn (i, e) => not (f e)) s of
+             NONE =>
+               (Word8VectorSlice.subslice (s, 0, SOME (size s)), Word8VectorSlice.subslice (s, size s, NONE))
+           | SOME (i, e) =>
+               (Word8VectorSlice.subslice (s, 0, SOME i), Word8VectorSlice.subslice (s, i, NONE))
+
+  val empty = Byte.stringToBytes ""
+  val newLine = Byte.stringToBytes "\n"
+end)

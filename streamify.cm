@@ -1,6 +1,8 @@
 Library
+    signature STREAMIFY
     functor StreamifyFn
     structure TextStream
+    structure BinStream
 is
     $/basis.cm
     streamify-sig.sml
